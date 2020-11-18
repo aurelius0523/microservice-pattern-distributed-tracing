@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.aurelius.demo</groupId>
-	<artifactId>sleuth</artifactId>
+	<artifactId>employee-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>sleuth</name>
+	<name>employee-service</name>
 	<description>Spring Boot project with sleuth</description>
 
 	<properties>

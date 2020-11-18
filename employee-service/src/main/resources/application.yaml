@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: employee-service
+  zipkin:
+    base-url: http://host.docker.internal:9411
+server:
+  port: 8080

@@ -22,7 +22,7 @@ public class EmployeeController {
 
     @GetMapping
     public String getEmployeeDetail() {
-        String response = (String) restTemplate.exchange("http://localhost:8081/inventories",
+        String response = (String) restTemplate.exchange("http://host.docker.internal:8081/inventories",
                 HttpMethod.GET, null, new ParameterizedTypeReference<String>() {
                 }).getBody();
         return response;
