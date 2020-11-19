@@ -1,4 +1,4 @@
-FROM azul/zulu-openjdk-alpine:11.0.7
+FROM adoptopenjdk/openjdk11:alpine-jre
 
 ADD target/employee-service-0.0.1-SNAPSHOT.jar employee-service-0.0.1-SNAPSHOT.jar
 
