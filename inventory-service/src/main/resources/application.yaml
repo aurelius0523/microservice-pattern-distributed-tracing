@@ -3,5 +3,9 @@ spring:
     name: inventory-service
   zipkin:
     base-url: http://host.docker.internal:9411
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
 server:
   port: 8081
