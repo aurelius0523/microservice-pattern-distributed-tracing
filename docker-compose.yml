@@ -1,0 +1,24 @@
+version: "3.8"
+services:
+  employee:
+    image: aurelius0523/employee-service
+    restart: always
+    ports:
+      - 9080:8080
+
+  inventory:
+    image: aurelius0523/inventory-service
+    restart: always
+    ports:
+      - 9081:8081
+
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: postgres
+    # initialization script for postgres
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - 5433:5432
