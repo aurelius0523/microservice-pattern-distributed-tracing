@@ -1,11 +1,26 @@
-## Distributed tracing demo
+# microservice-pattern-distributed-tracing
 
-### How to run
-1. start sleuth
-2. start sleuth2
-3. start `zipkin-server` by running `java -jar zipkin-server-2.12.9-exec.jar`
-4. Execute http call to sleuth 
+### How to run 
+#### Using `docker-compose`:
+1. Simply run `docker-compose up`
+1. Make a call to `employee-service` by visiting `http://localhost:9080/employees`
+1. Check `zipkin` at `http://localhost:9411/zipkin`. Click `Run Query` and then select the first span to view detail. You should see this:
 
+
+![zipkin-ui](docs/zipkin.PNG)
+
+
+1. It shows that call to `employee-service`'s `GET /employees` took 366ms.
+1. It shows that `employee-service` called `inventory-service`'s `GET /inventories` REST resource.
+1. It shows that `inventory-service` made a connection to database and executed some queries.
+
+_protip_,  if you click on the `span` with `jdbc` prefix then you can see these details:
+#### Sql executed
+![sql](docs/sql.PNG)
+
+#### total rows returned
+![row](docs/row.PNG)
+ 
 ### Learnings
 1. `spring-cloud-starter-sleuth` will add tracing (spanId) to request headers
 1. `spring-cloud-starter-zipkin` will forward those traces to `zipkin-server`
