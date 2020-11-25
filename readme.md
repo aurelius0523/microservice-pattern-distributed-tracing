@@ -5,10 +5,10 @@ logging are separated on purpose. Tools such as ELK stack should be preferred fo
 
 ### How to run 
 #### Using `docker`:
-Simply run `docker.bat`;
+Simply run `start-docker.bat`;
 
 #### Using `docker-compose`:
-Simply run `docker-compose.bat`
+Simply run `start-compose.bat`
 
 ### How to test
 1. Make a call to `employee-service` by visiting `http://localhost:9080/employees`
@@ -37,6 +37,8 @@ image that's currently used is not officially supported by `alpine`.
 1. If we're running everything in this repo using `docker` only, a container can reach another container by connecting
 to `http://host.docker.internal:port` instead of `http://localhost:post`. It seems that `host.docker.internal` is a
 special DNS name that resolves to the host machine (a.k.a, the host machine's localhost).
+1. It's helpful to run a container with name supplied e.g., `docker run -d --name coolName imageName`. One can then stop
+container using name instead of container id e.g., `docker top coolName`
 
 #### docker-compose
 1. In `docker-compose`, we don't need to `host.docker.internal`. Instead, we connect to a particular container using
