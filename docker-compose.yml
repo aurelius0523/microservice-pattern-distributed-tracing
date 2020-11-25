@@ -23,7 +23,7 @@ services:
       POSTGRES_PASSWORD: postgres
     # initialization script for postgres
     volumes:
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./postgresql-service/init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
       - 4432:5432
 
