@@ -29,8 +29,7 @@ public class InventoryController {
     public String getInventory() {
         List<UserEntity> userEntities = userRepository.findAll();
 
-        userEntities
-                .forEach(System.out::println);
+        userEntities.forEach((userEntity -> System.out.println(userEntity.getName())));
         return "sticky notes";
     }
 }

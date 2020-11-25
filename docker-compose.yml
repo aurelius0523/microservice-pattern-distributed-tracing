@@ -5,12 +5,16 @@ services:
     restart: always
     ports:
       - 9080:8080
+    environment:
+      SPRING_PROFILES_ACTIVE: compose
 
   inventory:
     image: aurelius0523/inventory-service
     restart: always
     ports:
       - 9081:8081
+    environment:
+      SPRING_PROFILES_ACTIVE: compose
 
   db:
     image: postgres
@@ -21,9 +25,9 @@ services:
     volumes:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
-      - 5433:5432
+      - 4432:5432
 
   zipkin:
     image: openzipkin/zipkin
     ports:
-    - 9411:9411
+      - 9411:9411

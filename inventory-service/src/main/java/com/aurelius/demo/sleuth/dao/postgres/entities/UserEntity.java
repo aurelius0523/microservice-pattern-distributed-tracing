@@ -14,6 +14,15 @@ public class UserEntity {
     @Column(name = "name")
     private String name;
 
+    public String getName() {
+        return name;
+    }
+
+    public UserEntity setName(String name) {
+        this.name = name;
+        return this;
+    }
+
     public void setId(String id) {
         this.id = id;
     }

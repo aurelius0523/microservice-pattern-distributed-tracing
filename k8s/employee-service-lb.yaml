@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+
+metadata:
+  name: employee-service-lb
+
+spec:
+  type: LoadBalancer
+  selector:
+    app: employee-service
+  ports:
+    - targetPort: 8080
+      port: 7080

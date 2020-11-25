@@ -1,0 +1,23 @@
+kind: Deployment
+apiVersion: apps/v1
+
+metadata:
+  name: employee-service-deployment
+  labels:
+    app: employee-service
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: employee-service
+  template:
+    metadata:
+      labels:
+        app: employee-service
+    spec:
+      containers:
+        - name: employee-service
+          image: aurelius0523/employee-service
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
